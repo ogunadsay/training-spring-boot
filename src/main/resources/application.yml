@@ -1,0 +1,4 @@
+homeController:
+  msg: "Hello from YAML config"
+  foo: "foo"
+  bar: "bar"
