@@ -16,8 +16,11 @@ public class HomeController {
     @Value("${my.secret}")
     private String UUID;
 
+    @Value("${spring.profiles.active}")
+    private String environment;
+
     @RequestMapping("/")
     public String home(){
-        return UUID;
+        return homeControllerMsg;
     }
 }

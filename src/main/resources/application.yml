@@ -10,3 +10,11 @@ myconfig:
   admin-firstname: "ogun"
   admin-lastname: "adsay"
   adminEmail: "ogunadsay@hotmail.com"
+
+environments:
+  development:
+    url: dev.foo.com
+    name: dev env
+  production:
+    url: prod.foo.com
+    name: prod env

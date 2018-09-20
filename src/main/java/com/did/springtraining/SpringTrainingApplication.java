@@ -13,7 +13,7 @@ public class SpringTrainingApplication {
 
 		ApplicationContext ctx = SpringApplication.run(SpringTrainingApplication.class, args);
 
-		MyAppConfig config = (MyAppConfig) ctx.getBean("myAppConfig");
-		System.out.println(config.toString());
+//		MyAppConfig config = (MyAppConfig) ctx.getBean("myAppConfig");
+		System.out.println(ctx.getBean("mydatasource").toString());
 	}
 }
