@@ -2,3 +2,11 @@ homeController:
   msg: "Hello from YAML config"
   foo: "foo"
   bar: "bar"
+
+
+myconfig:
+  appName: "My cool app"
+  app-description: ${myconfig.appName} "is a spring application"
+  admin-firstname: "ogun"
+  admin-lastname: "adsay"
+  adminEmail: "ogunadsay@hotmail.com"
