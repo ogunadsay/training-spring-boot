@@ -1,9 +1,6 @@
 package com.did.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -13,6 +10,8 @@ public class Post {
     @GeneratedValue
     private Long id;
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String body;
     private Date postedOn;
 
@@ -20,6 +19,13 @@ public class Post {
     @ManyToOne
     private Author author;
 
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
     //needed by JPA
     private Post() {
