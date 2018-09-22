@@ -1,39 +1,40 @@
 package com.did.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Post {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
     private String title;
 
     @Column(columnDefinition = "TEXT")
     private String body;
+
+    @Column(columnDefinition = "TEXT")
+    private String teaser;
+
+    private String slug;
+
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
     private Date postedOn;
 
-    //many posts to one author
     @ManyToOne
     private Author author;
 
-    public Author getAuthor() {
-        return author;
+    @SuppressWarnings("unused")
+    private Post(){
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
-    //needed by JPA
-    private Post() {
-    }
-
-    //make sure post has a title
-    public Post(String title) {
-        this.title = title;
+    public Post(String title){
+        this.setTitle(title);
     }
 
     public String getTitle() {
@@ -59,4 +60,34 @@ public class Post {
     public void setPostedOn(Date postedOn) {
         this.postedOn = postedOn;
     }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public String getTeaser() {
+        return teaser;
+    }
+
+    public void setTeaser(String teaser) {
+        this.teaser = teaser;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    @Override
+    public String toString() {
+        return "Post [title=" + title + "]";
+    }
+
 }

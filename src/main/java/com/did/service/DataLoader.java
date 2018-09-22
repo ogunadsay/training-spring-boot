@@ -21,17 +21,17 @@ public class DataLoader {
         this.postRepository = postRepository;
     }
 
-    @PostConstruct
-    void loadData(){
-        //create an author
-        Author author = new Author("Ogün","Adsay");
-        authorRepository.save(author);
-
-        //create posts
-        Post post = new Post("Spring data rocks");
-        post.setBody("post boyd here");
-        post.setPostedOn(new Date());
-        post.setAuthor(author);
-        postRepository.save(post);
-    }
+//    @PostConstruct
+//    void loadData(){
+//        //create an author
+//        Author author = new Author("Ogün","Adsay");
+//        authorRepository.save(author);
+//
+//        //create posts
+//        Post post = new Post("Spring data rocks");
+//        post.setBody("post boyd here");
+//        post.setPostedOn(new Date());
+//        post.setAuthor(author);
+//        postRepository.save(post);
+//    }
 }
